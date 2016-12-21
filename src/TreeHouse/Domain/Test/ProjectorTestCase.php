@@ -47,13 +47,14 @@ abstract class ProjectorTestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param string             $aggregateId
+     * @param string $aggregateId
      * @param ProjectorInterface $projector
-     * @param array              $events
+     * @param array $events
+     * @param \DateTime|null $occurredOn
      *
      * @return $this
      */
-    protected function given($aggregateId, ProjectorInterface $projector, array $events = [])
+    protected function given($aggregateId, ProjectorInterface $projector, array $events = [], \DateTime $occurredOn = null)
     {
         $this->aggregateId = $aggregateId;
         $this->projector = $projector;
@@ -64,7 +65,8 @@ abstract class ProjectorTestCase extends PHPUnit_Framework_TestCase
                     $this->aggregateId,
                     $event,
                     (string) new EventName($event),
-                    $this->version
+                    $this->version,
+                    $occurredOn
                 )
             );
             ++$this->version;
