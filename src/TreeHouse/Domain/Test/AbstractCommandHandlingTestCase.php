@@ -84,16 +84,17 @@ abstract class AbstractCommandHandlingTestCase extends PHPUnit_Framework_TestCas
      * @param $aggregateId
      * @param $aggregateClass
      * @param array|null $events
+     * @param \DateTime $occurredOn
      *
      * @return $this
      */
-    protected function given($aggregateId, $aggregateClass, array $events = [])
+    protected function given($aggregateId, $aggregateClass, array $events = [], \DateTime $occurredOn = null)
     {
         $this->aggregateId = $aggregateId;
         $this->aggregateClass = $aggregateClass;
 
         $this->eventStore->append(
-            $this->getEventsForStream($aggregateId, $events)
+            $this->getEventsForStream($aggregateId, $events, $occurredOn)
         );
 
         return $this;
@@ -146,10 +147,11 @@ abstract class AbstractCommandHandlingTestCase extends PHPUnit_Framework_TestCas
     /**
      * @param string $aggregateId
      * @param array  $events
+     * @param \DateTime $occurredOn
      *
      * @return EventStream
      */
-    private function getEventsForStream($aggregateId, array $events = [])
+    private function getEventsForStream($aggregateId, array $events = [], \DateTime $occurredOn = null)
     {
         $eventsForStream = new EventStream();
 
@@ -158,7 +160,8 @@ abstract class AbstractCommandHandlingTestCase extends PHPUnit_Framework_TestCas
                 $aggregateId,
                 $event,
                 (string) new EventName($event),
-                $this->version
+                $this->version,
+                $occurredOn
             ));
 
             ++$this->version;
