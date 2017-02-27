@@ -3,10 +3,11 @@
 namespace TreeHouse\Domain\Tests;
 
 use Iterator;
+use PHPUnit\Framework\TestCase;
 use stdClass;
 use TreeHouse\Domain\EventStream;
 
-class EventStreamTest extends \PHPUnit_Framework_TestCase
+class EventStreamTest extends TestCase
 {
     /**
      * @test
@@ -18,9 +19,8 @@ class EventStreamTest extends \PHPUnit_Framework_TestCase
             new stdClass(),
         ]);
 
-        $this->assertEquals(
-            2,
-            count($eventStream)
+        $this->assertCount(
+            2, $eventStream
         );
     }
 
@@ -146,9 +146,8 @@ class EventStreamTest extends \PHPUnit_Framework_TestCase
 
         $eventStream->clear();
 
-        $this->assertEquals(
-            0,
-            count($eventStream)
+        $this->assertCount(
+            0, $eventStream
         );
     }
 }

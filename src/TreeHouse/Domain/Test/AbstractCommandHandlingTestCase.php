@@ -2,7 +2,7 @@
 
 namespace TreeHouse\Domain\Test;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use TreeHouse\CommandHandling\CommandHandlerInterface;
 use TreeHouse\CommandHandling\CommandInterface;
 use TreeHouse\Domain\EventName;
@@ -18,7 +18,7 @@ use TreeHouse\EventStore\InMemoryEventStore;
 /**
  * @codeCoverageIgnore
  */
-abstract class AbstractCommandHandlingTestCase extends PHPUnit_Framework_TestCase
+abstract class AbstractCommandHandlingTestCase extends TestCase
 {
     /**
      * @var EventBusInterface

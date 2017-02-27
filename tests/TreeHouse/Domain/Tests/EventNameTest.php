@@ -2,10 +2,11 @@
 
 namespace TreeHouse\Domain\Tests;
 
+use PHPUnit\Framework\TestCase;
 use TreeHouse\Domain\EventEnvelopeInterface;
 use TreeHouse\Domain\EventName;
 
-class EventNameTest extends \PHPUnit_Framework_TestCase
+class EventNameTest extends TestCase
 {
     /**
      * @test

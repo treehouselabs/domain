@@ -2,7 +2,7 @@
 
 namespace TreeHouse\Domain\Test;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use TreeHouse\Domain\EventName;
 use TreeHouse\EventSourcing\InMemoryProjectionRepository;
 use TreeHouse\EventSourcing\ProjectionRepositoryInterface;
@@ -12,7 +12,7 @@ use TreeHouse\EventSourcing\VersionedEvent;
 /**
  * @codeCoverageIgnore
  */
-abstract class ProjectorTestCase extends PHPUnit_Framework_TestCase
+abstract class ProjectorTestCase extends TestCase
 {
     /**
      * @var ProjectorInterface
