@@ -2,7 +2,7 @@
 
 namespace TreeHouse\Domain\Test;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use TreeHouse\CommandHandling\CommandHandlerInterface;
 use TreeHouse\CommandHandling\CommandInterface;
 use TreeHouse\Domain\AggregateInterface;
@@ -14,7 +14,7 @@ use TreeHouse\MessageBus\MessageBus;
 use TreeHouse\MessageBus\MessageBusInterface;
 use TreeHouse\MessageBus\Middleware\TraceableMiddleware;
 
-abstract class AbstractAggregateTestCase extends PHPUnit_Framework_TestCase
+abstract class AbstractAggregateTestCase extends TestCase
 {
     /**
      * @var MessageBusInterface
